@@ -79,7 +79,7 @@ int write_env(char **cmd, int er)
 	size_t i;
 	int n;
 	(void)cmd;
-        (void)er;
+	(void)er;
 
 	for (i = 0; environ[i] != NULL; i++)
 	{
