@@ -16,14 +16,12 @@ int execmd(char **argv, char **cmd, char *input, unsigned int counter)
 
 	if (argv == NULL || cmd == NULL)
 	{	
-		free_all(cmd, input);
 		return (-1);
 	}
 	path = find_path(cmd);
 	if (path == NULL)
 	{
 		print_error(argv, cmd, counter);
-		free_all(cmd, input);
 		return (0);
 	}
 
@@ -48,8 +46,7 @@ int execmd(char **argv, char **cmd, char *input, unsigned int counter)
 	else
 	{
 		wait(NULL);
-		free(path);
-		free_all(cmd, input);
 	}
+                free(path);
 	return (1);
 }

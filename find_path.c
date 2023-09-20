@@ -36,11 +36,13 @@ char *find_path(char **cmd)
 		free(cp_path);
 			if (stat(*cmd, &buffer) == 0)
 			{
+				free(file_path);
 				file_path = malloc(_strlen(*cmd) + 1);
 				_strcpy(file_path, *cmd);
 				free(path);
 				return (file_path);
 			}
+			free(file_path);
 			free(path);
 	}
 
