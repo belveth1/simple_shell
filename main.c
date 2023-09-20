@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 			prompt();
 		 signal(SIGINT, handle_ctrlc);
 		 input = _getline();
-		 input_data(input);
+		 
 		 cmd = cmd_line(input);
 		if (_strcmp(cmd[0], "exit") == 0)
 		{
