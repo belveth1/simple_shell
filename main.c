@@ -18,18 +18,15 @@ int main(int argc, char **argv)
 	read_file(argv[1], argv);
 	while (statue)
 	{
-
 		count++;
 		if (isatty(STDIN_FILENO))
 			prompt();
 		 signal(SIGINT, handle_ctrlc);
 		 input = _getline();
-		 if (input[0] == '\0')
+		if (input[0] == '\0')
 		{
 			continue;
 		}
-
- 
 		 cmd = cmd_line(input);
 		if (_strcmp(cmd[0], "exit") == 0)
 		{
@@ -41,14 +38,12 @@ int main(int argc, char **argv)
 			free_all(cmd, input);
 			continue;
 		}
-
 		else
 		{
 			if (execmd(argv, cmd, input, count) == 0)
-			
 			continue;
 		}
-	free_all(cmd, input);
+		free_all(cmd, input);
 	}
 	return (statue);
 }
