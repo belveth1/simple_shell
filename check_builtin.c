@@ -8,6 +8,7 @@
 int check_builtin(char **cmd)
 {
 	built_in funs[] = {
+		{"cd", NULL},
 		{"env", NULL},
 		{"echo", NULL},
 		{NULL, NULL}
