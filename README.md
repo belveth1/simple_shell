@@ -1,2 +1,1 @@
-hello ,
-this is very simple shell hsh
+0x16. C - Simple Shell
