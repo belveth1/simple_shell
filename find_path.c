@@ -42,7 +42,6 @@ char *find_path(char **cmd)
 				free(path);
 				return (file_path);
 			}
-			free(file_path);
 			free(path);
 	}
 	return (NULL);
