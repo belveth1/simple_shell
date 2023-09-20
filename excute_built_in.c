@@ -9,7 +9,6 @@
 int excute_builtin(char **cmd, int er)
 {
 	 built_in bil[] = {
-		{"cd", change_dir},
 		{"env", write_env},
 		{"echo", echo_handle_builtin},
 		{NULL, NULL}

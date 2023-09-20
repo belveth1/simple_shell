@@ -25,8 +25,6 @@ int execmd(char **argv, char **cmd, char *input, unsigned int counter)
 		free_all(cmd, input);
 		return (0);
 	}
-
-
 	pid = fork();
 	if (pid == -1)
 	{
