@@ -15,11 +15,15 @@ int execmd(char **argv, char **cmd, char *input, unsigned int counter)
 	(void)input;
 
 	if (argv == NULL || cmd == NULL)
+	{	
+		free_all(cmd, input);
 		return (-1);
+	}
 	path = find_path(cmd);
 	if (path == NULL)
 	{
 		print_error(argv, cmd, counter);
+		free_all(cmd, input);
 		return (0);
 	}
 
@@ -28,6 +32,7 @@ int execmd(char **argv, char **cmd, char *input, unsigned int counter)
 	if (pid == -1)
 	{
 		perror("Error forking");
+		free_all(cmd, input);
 		return (-1);
 	}
 	if (pid == 0)
@@ -44,6 +49,7 @@ int execmd(char **argv, char **cmd, char *input, unsigned int counter)
 	{
 		wait(NULL);
 		free(path);
+		free_all(cmd, input);
 	}
 	return (1);
 }
