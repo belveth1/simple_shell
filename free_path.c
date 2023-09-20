@@ -26,8 +26,8 @@ void file_path_handle(char *path, char *cp_path)
  */
 void free_all(char **cmd, char *line)
 {
-        free(cmd);
-        free(line);
-        line = NULL;
+	free(cmd);
+	free(line);
+	line = NULL;
 	cmd = NULL;
 }

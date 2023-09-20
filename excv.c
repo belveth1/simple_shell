@@ -15,7 +15,7 @@ int execmd(char **argv, char **cmd, char *input, unsigned int counter)
 	(void)input;
 
 	if (argv == NULL || cmd == NULL)
-	{	
+	{
 		return (-1);
 	}
 	path = find_path(cmd);
@@ -47,6 +47,6 @@ int execmd(char **argv, char **cmd, char *input, unsigned int counter)
 	{
 		wait(NULL);
 	}
-                free(path);
+	free(path);
 	return (1);
 }
