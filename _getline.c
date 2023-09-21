@@ -16,8 +16,7 @@ char *buff = malloc(buffsize);
 	}
 
 	for (i = 0; buffer != EOF && buffer != '\n'; i++)
-	{
-		fflush(stdin);
+	{	
 		rbyte = read(STDIN_FILENO, &buffer, 1);
 		if (rbyte == 0)
 		{
@@ -41,5 +40,6 @@ char *buff = malloc(buffsize);
 		}
 	}
 	buff[i] = '\0';
+	hashtag_handle(buff);
 	return (buff);
 }

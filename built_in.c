@@ -35,6 +35,41 @@ void exit_bultin(char **cmd, char *input, char **argv, int c)
 	exit(statue);
 }
 /**
+ * change_dir - change current directory to another by user
+ * @cmd: input command
+ * @er: Statue Last Command excuted
+ * Return: 0 Succes 1 Failed (For Old Pwd Always 0 Case No Old PWD)
+ */
+int change_dir(char **cmd, int er)
+{
+	char cwd[PATH_MAX];
+	 int value = -1;
+	 (void)er;
+
+	if (cmd[1] == NULL)
+		value = chdir(_getenv("HOME"));
+	else if (_strcmp(cmd[1], "-") == 0)
+	{
+		value = chdir(_getenv("OLDPWD"));
+		free(_getenv("OLDPWD"));
+	}
+	else
+		value = chdir(cmd[1]);
+
+	if (value == -1)
+	{
+		perror("hsh");
+		return (-1);
+	}
+	else if (value != -1)
+	{
+		getcwd(cwd, sizeof(cwd));
+		setenv("OLDPWD", _getenv("PWD"), 1);
+		setenv("PWD", cwd, 1);
+	}
+	return (0);
+}
+/**
  * write_env - write Enviroment Variables on screen
  * @cmd: Command line by user
  * @er:Statue of Last command Excuted

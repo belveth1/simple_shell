@@ -18,7 +18,7 @@ char *_getenv(char *name)
 		if (_strncmp(name, environ[i], n_length) == 0)
 		{
 			v_length = _strlen(environ[i]) - n_length;
-			value = malloc(sizeof(char) * v_length);
+			value = malloc(sizeof(char) * (v_length + 1));
 			if (!value)
 			{
 				free(value);
