@@ -22,7 +22,7 @@ int execmd(char **argv, char **cmd, char *input, unsigned int counter)
 	if (path == NULL)
 	{
 		print_error(argv, cmd, counter);
-		free_all(cmd, input);
+		free(cmd);
 		return (0);
 	}
 	pid = fork();
