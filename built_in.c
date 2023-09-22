@@ -47,11 +47,11 @@ int change_dir(char **cmd, int er)
 	 (void)er;
 
 	if (cmd[1] == NULL)
-		value = chdir(_getenv("HOME"));
+		value = chdir(getenv("HOME"));
 	else if (_strcmp(cmd[1], "-") == 0)
 	{
-		value = chdir(_getenv("OLDPWD"));
-		free(_getenv("OLDPWD"));
+		value = chdir(getenv("OLDPWD"));
+		
 	}
 	else
 		value = chdir(cmd[1]);
@@ -64,7 +64,7 @@ int change_dir(char **cmd, int er)
 	else if (value != -1)
 	{
 		getcwd(cwd, sizeof(cwd));
-		setenv("OLDPWD", _getenv("PWD"), 1);
+		setenv("OLDPWD", getenv("PWD"), 1);
 		setenv("PWD", cwd, 1);
 	}
 	return (0);
