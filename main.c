@@ -8,6 +8,8 @@
 int main(int argc, char **argv)
 {
 	char *input;
+	ssize_t n_read;
+	size_t n = 0;
 	char **cmd;
 	int st = 0;
 	int count = 0, statue = 1;
@@ -22,11 +24,10 @@ int main(int argc, char **argv)
 		if (isatty(STDIN_FILENO))
 			prompt();
 		 signal(SIGINT, handle_ctrlc);
-		 input = _getline();
-		if (input[0] == '\0')
-		{
-			continue;
-		}
+		 n_read = getline(&input, &n, stdin);
+		 if (n_read == -1 || n_read == EOF)
+                        return (handle_ctrld(input));
+
 		 cmd = cmd_line(input);
 		if (_strcmp(cmd[0], "exit") == 0)
 		{
@@ -35,7 +36,7 @@ int main(int argc, char **argv)
 		else if (check_builtin(cmd) == 0)
 		{
 			st = excute_builtin(cmd, st);
-			free_all(cmd, input);
+			free(cmd);
 			continue;
 		}
 		else
@@ -43,7 +44,7 @@ int main(int argc, char **argv)
 			if (execmd(argv, cmd, input, count) == 0)
 			continue;
 		}
-		free_all(cmd, input);
+		free(cmd);
 	}
 	return (statue);
 }

@@ -56,6 +56,7 @@ void exit_error(char **argv, char **cmd, unsigned int counter, char *alpha);
 /************************************hundle ctr+c & ctr+D****************/
 void handle_ctrlc(int signum);
 void hashtag_handle(char *buff);
+int handle_ctrld(char *input);
 /*********************************built in functions********************/
 int check_builtin(char **cmd);
 int excute_builtin(char **cmd, int er);

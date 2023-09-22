@@ -10,6 +10,14 @@ void handle_ctrlc(int signum)
 
 	write(1, "\n$ ", 3);
 }
+int handle_ctrld(char *input)
+{ 
+	(void)input;
+
+        if (isatty(STDIN_FILENO) == 1)
+                write(STDOUT_FILENO, "\n", 1);
+        return (0);
+}
 /**
  * hashtag_handle - delete  anything after #
  * @buff: input data by _getline;
