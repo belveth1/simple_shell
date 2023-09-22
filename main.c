@@ -7,7 +7,7 @@
  */
 int main(int argc, char **argv)
 {
-	char *input;
+	char *input = NULL;
 	ssize_t n_read;
 	size_t n = 0;
 	char **cmd;
