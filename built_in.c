@@ -25,16 +25,16 @@ int exit_bultin(char **cmd, char *input, char **argv, int c)
 		{
 			exit_error(argv, cmd, c, cmd[1]);
 			statue = 2;
-			write(2, &statue,1);
+			write(2, &statue, 1);
 			return (2);
 		}
 	}
 	if (cmd[1][0] == '-')
 	{
-                         exit_error(argv, cmd, c, cmd[1]);
-			 statue = 2;
-                        write(2, &statue,1);
-                        return (2);
+		exit_error(argv, cmd, c, cmd[1]);
+		statue = 2;
+		write(2, &statue, 1);
+		return (2);
 	}
 	statue = _atoi(cmd[1]);
 
@@ -59,7 +59,6 @@ int change_dir(char **cmd, int er)
 	else if (_strcmp(cmd[1], "-") == 0)
 	{
 		value = chdir(getenv("OLDPWD"));
-		
 	}
 	else
 		value = chdir(cmd[1]);
