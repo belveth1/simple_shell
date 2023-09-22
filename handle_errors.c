@@ -15,5 +15,7 @@ void print_error(char **argv, char **cmd, unsigned int counter)
 	write(2, ": ", 2);
 	write(2, cmd[0], _strlen(cmd[0]));
 	write(2, ": not found\n", 12);
+	if (isatty(STDIN_FILENO) == 0)
+                  exit(2);
 	free(num_cmd);
 }
