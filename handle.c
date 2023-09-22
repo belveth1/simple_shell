@@ -12,8 +12,7 @@ void handle_ctrlc(int signum)
 }
 int handle_ctrld(char *input)
 { 
-	(void)input;
-
+	free(input);
         if (isatty(STDIN_FILENO) == 1)
                 write(STDOUT_FILENO, "\n", 1);
         return (0);
