@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 		 cmd = cmd_line(input);
 		if (_strcmp(cmd[0], "exit") == 0)
 		{
-			exit_bultin(cmd, input, argv, count);
+			st = exit_bultin(cmd, input, argv, count);
 		}
 		else if (check_builtin(cmd) == 0)
 		{

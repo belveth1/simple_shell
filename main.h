@@ -61,7 +61,7 @@ int handle_ctrld(char *input);
 int check_builtin(char **cmd);
 int excute_builtin(char **cmd, int er);
 int change_dir(char **cmd, int er);
-void exit_bultin(char **cmd, char *input, char **argv, int c);
+int exit_bultin(char **cmd, char *input, char **argv, int c);
 int echo_bul(char **cmd, int st);
 int write_env(char **cmd, int er);
 int print_echo(char **cmd);

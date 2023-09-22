@@ -8,7 +8,7 @@
  * @c: excute Counter numbers
  * Return: Void with statue exit
  */
-void exit_bultin(char **cmd, char *input, char **argv, int c)
+int exit_bultin(char **cmd, char *input, char **argv, int c)
 {
 	int statue;
 	int i = 0;
@@ -24,13 +24,13 @@ void exit_bultin(char **cmd, char *input, char **argv, int c)
 		if (_isalpha(cmd[1][i]) != 0)
 		{
 			exit_error(argv, cmd, c, cmd[1]);
-			return;
+			return (2);
 		}
 	}
 	if (cmd[1][0] == '-')
 	{
                          exit_error(argv, cmd, c, cmd[1]);
-                        return;
+                        return (2);
 	}
 	statue = _atoi(cmd[1]);
 
