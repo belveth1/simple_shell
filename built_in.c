@@ -26,11 +26,12 @@ void exit_bultin(char **cmd, char *input, char **argv, int c)
 			exit_error(argv, cmd, c, cmd[1]);
 			return;
 		}
-		else if (cmd[1][0] == '-')
-			 exit_error(argv, cmd, c, cmd[1]);
+	}
+	if (cmd[1][0] == '-')
+	{
+                         exit_error(argv, cmd, c, cmd[1]);
                         return;
 	}
-
 	statue = _atoi(cmd[1]);
 
 	free(input);
