@@ -76,10 +76,6 @@ void free_all(char **cmd, char *line);
 void read_file(char *filename, char **argv);
 void handle_file(char *input, int counter, FILE *fp, char **argv);
 void exit_bul_file(char **cmd, char *input, FILE *fd);
-int dis_help(char **cmd, __attribute__((unused))int st);
-void h_unsetenv(void);
-void h_isetenv(void);
-void h_env(void);
 /**
  * struct bulltinfun - structure contains bultin to handle and
  *                          excute functions
